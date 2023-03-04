@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "target": "sprinttech-cake-resume",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
