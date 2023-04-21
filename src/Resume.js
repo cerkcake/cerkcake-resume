@@ -2,16 +2,13 @@ import "./index.css";
 import { GoLocation } from "react-icons/go";
 import { BiPhoneCall } from "react-icons/bi";
 import { AiOutlineSafetyCertificate } from "react-icons/ai";
-import React, { useState } from "react";
-import Nav from "./components/Nav";
+import React from "react";
+
 import Profile from "./components/Profile";
 
 const Resume = ({ info }) => {
-  const [toggle, setToggle] = useState(false);
   return (
     <div className="bg-black">
-      {/* <Nav toggle={toggle} setToggle={setToggle}/> */}
-
       {/*MAIN CONTAINER*/}
       <div className="pt-[64px\] md:flex md:w-5/6 mx-auto pt-14 border-b-2 border-gray-100">
         {/* LEFT SECTION */}
@@ -21,17 +18,18 @@ const Resume = ({ info }) => {
           {/* START WEBSITE */}
           <div className="p-6 border-b-2 border-b-gray-100">
             <h2 className="mb-3 text-2xl font-bold">PAGES</h2>
-
-            {info.websites.map((item, index) => (
-              <div className="pr-3 " key={`${item}-${index}`}>
-                <a className="hover:text-green-400" href={item.url}>
-                  {item.icon}
+            <div className="flex">
+              {info.websites.map((item, index) => (
+                <a
+                  key={`${item}-${index}`}
+                  className="pr-3"
+                  href={item.url}
+                  target="_blank"
+                >
+                  <img align="center" src={item.icon} height="30" width="40" />
                 </a>
-                <a className="hover:text-green-400" href={item.url}>
-                  {item.url}
-                </a>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
           {/* END WEBSITE */}
 
@@ -48,8 +46,8 @@ const Resume = ({ info }) => {
             {/* SKILL 2 */}
             <div className="pt-1">
               <h1 className=" text-lg font-bold ">ENGLISH : intermediate</h1>
-              <p className=" text-sm"> TOEIC Score : 575 </p>
-              <p className=" text-sm"> IELTS Band Score : 6 </p>
+              <p className=" text-sm"> TOEIC Score : 575 (2019) </p>
+              <p className=" text-sm"> IELTS Band Score : 6 (2017)</p>
             </div>
             {/* END SKILL 2 */}
           </div>
@@ -66,83 +64,53 @@ const Resume = ({ info }) => {
             <div className="education-head">
               <h3 className="pb-6 text-2xl font-bold">EDUCATION</h3>
             </div>
-            <div className="education-detail lg:flex">
-              <div className="w-full lg:w-1/3 lg:border-r-2">
-                <div className="hidden lg:flex md:bg-gray-50 mt-1.5 rounded-full w-3 h-3 float-right -mr-1.5"></div>
-                <h4 className="font-bold">University</h4>
-              </div>
+            {info.educations.map((edu) => (
+              <div className="education-detail lg:flex">
+                <div className="w-full lg:w-1/3 lg:border-r-2">
+                  <div className="hidden lg:flex md:bg-gray-50 mt-1.5 rounded-full w-3 h-3 float-right -mr-1.5"></div>
+                  <h4 className="font-bold">{edu.type}</h4>
+                </div>
 
-              <div className="w-full lg:w-2/3 border-l-2 border-green-400 pl-3 lg:border-l-0">
-                <h4 className="font-bold"> {info.university1}</h4>
-                <p>{info.universityDetail1}</p>
-                <br />
+                <div className="w-full lg:w-2/3 border-l-2 border-green-400 pl-3 lg:border-l-0">
+                  <h4 className="font-bold"> {edu.name}</h4>
+                  <p>
+                    <ul className="list-none">
+                      {edu.details.map((detail) => (
+                        <li>{detail}</li>
+                      ))}
+                    </ul>
+                  </p>
+                  <br />
+                </div>
               </div>
-            </div>
-            <div className="education-detail lg:flex">
-              <div className="w-full lg:w-1/3 lg:border-r-2">
-                <div className="hidden lg:flex md:bg-gray-50 mt-1.5 rounded-full w-3 h-3 float-right -mr-1.5"></div>
-                <h4 className="font-bold">School</h4>
-              </div>
-
-              <div className="w-full lg:w-2/3 border-l-2 border-green-400 pl-3 lg:border-l-0">
-                <h4 className="font-bold">{info.schoolName} </h4>
-                <p>{info.schoolDetail}</p>
-                <br />
-              </div>
-            </div>
+            ))}
           </div>
           <div id="WorkExperience" className="p-6">
             <div className="w-full">
               <h3 className="pb-6 text-2xl font-bold">WORK EXPERIENCE</h3>
             </div>
-            <div className="company-detail lg:flex  justify-between">
-              <div className="company w-full lg:w-1/3 lg:border-r-2">
-                <div className="hidden lg:flex md:bg-gray-50 mt-1.5 rounded-full w-3 h-3 float-right -mr-1.5"></div>
-                <time className="font-bold">2020-2022</time>
+            {info.workExperience.map((work) => (
+              <div
+                key={work.year}
+                className="company-detail lg:flex  justify-between"
+              >
+                <div className="company w-full lg:w-1/3 lg:border-r-2">
+                  <div className="hidden lg:flex md:bg-gray-50 mt-1.5 rounded-full w-3 h-3 float-right -mr-1.5"></div>
+                  <time className="font-bold">{work.year}</time>
+                </div>
+                <div className="details w-full lg:w-2/3 border-l-2 border-green-400 pl-3 lg:border-l-0">
+                  <h4 className=" font-bold">{work.companyName}</h4>
+                  <p className="">
+                    <ul className="list-none">
+                      {work.jobs.map((job) => (
+                        <li key={job}>{job}</li>
+                      ))}
+                    </ul>
+                    <br />
+                  </p>
+                </div>
               </div>
-              <div className="details w-full lg:w-2/3 border-l-2 border-green-400 pl-3 lg:border-l-0">
-                <h4 className=" font-bold">TEAM Group Co.,Pcl</h4>
-                <p className="">
-                  <ul className="list-none">
-                    <li>- Cost & Specification Engineer</li>
-                    <li>- Architecture & Structure Drawing Improvement</li>
-                  </ul>
-                  <br />
-                </p>
-              </div>
-            </div>
-            <div className="company-detail lg:flex  justify-between">
-              <div className="company w-full lg:w-1/3 lg:border-r-2">
-                <div className="hidden lg:flex md:bg-gray-50 mt-1.5 rounded-full w-3 h-3 float-right -mr-1.5"></div>
-                <time className="font-bold">2018-2019</time>
-              </div>
-              <div className="details w-full lg:w-2/3 border-l-2 border-green-400 pl-3 lg:border-l-0">
-                <h4 className=" font-bold">Power Line Engineering Co.,Pcl</h4>
-                <ul className="list-none">
-                  <li>- Technical Support for Site Engineer</li>
-                  <li>- Construction Layout Planer</li>
-                  <li>- Construction Man power & Machinery Planer</li>
-                </ul>
-                <br />
-              </div>
-            </div>
-            <div className="company-detail lg:flex  justify-between">
-              <div className="company w-full lg:w-1/3 lg:border-r-2">
-                <div className="hidden lg:flex md:bg-gray-50 mt-1.5 rounded-full w-3 h-3 float-right -mr-1.5"></div>
-                <time className="font-bold">2016-2017</time>
-              </div>
-              <div className="details w-full lg:w-2/3 border-l-2 border-green-400 pl-3 lg:border-l-0">
-                <h4 className=" font-bold">
-                  International Project Administration Co.,Ltd
-                </h4>
-                <ul className="list-none">
-                  <li>- Site Engineer</li>
-                  <li>- Construction Progress Tracker & Report</li>
-                  <li>- Construction Manager Assistant</li>
-                </ul>
-                <br />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
         {/* END RIGHT SECTION */}

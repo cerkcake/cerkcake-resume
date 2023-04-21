@@ -1,6 +1,6 @@
 import "./index.css";
 import Resume from "./Resume";
-import { BsGithub, BsFacebook, BsInstagram } from "react-icons/bs";
+import { BsGithub, } from "react-icons/bs";
 
 const App = () => {
   const info = {
@@ -9,33 +9,46 @@ const App = () => {
     lname: `YOONUCH`,
     tools: `./mystack.png`,
     aboutMe: `
-    A Cost & Specification Engineer who's tired of mannually input and calculations on  Excel, I'd been trying to minimize and shorten the very repeatedly work process, and i finally found out that coding could help. That 's the point where i start  learning coding.`,
+    A Civil Engineer who's tired of manually input and calculations on  
+    Excel, I'd been trying to minimize and shorten the very repeatedly 
+    work process, and I finally found out that coding could help. That 's 
+    the point where I start  learning coding.`,
 
     websites: [
       {
         url: "https://github.com/cerkcake",
         name: `GitHub`,
-        icon: <BsGithub />,
+        icon: `https://cdn.iconscout.com/icon/free/png-256/github-156-675764.png?f=webp&w=256`,
       },
       {
         url: "https://www.facebook.com/yoonuch",
         name: "Facebook",
-        icon: <BsFacebook />,
+        icon: `https://cdn.iconscout.com/icon/free/png-512/facebook-270-789828.png?f=avif&w=256`,
       },
       {
-        url: "https://instagram.com/lotsof.cake",
-        name: "Instagram",
-        icon: <BsInstagram />,
+        url: "https://www.linkedin.com/in/kunlanis-yoonuch/",
+        name: "LinkedIn",
+        icon: `https://cdn.iconscout.com/icon/free/png-512/linkedin-194-789838.png?f=avif&w=256`,
       },
     ],
 
     location: `Saimai, Bangkok`,
     contactInfo: { tel: `091-234-5678`, mail: `yoo.kunlanis@gmail.com` },
     qualify: `Assc. Engineer No.69903`,
-    schoolName: `RITTIYA WANNALAI, Bangkok`,
-    schoolDetail: `- Science-Mathematics`,
-    university1: `KING MONGKUT'S UNIVERSITY OF TECHNOLOGY THONBURI, Bangkok`,
-    universityDetail1: `- Bachelor of Civil Engineering`,
+    educations: [
+      {type:`Short Course`,
+        name: `SprintTech Academy, Bangkok`,
+        details: [`- A 3-month course of Fullstack Developer`],
+      },
+      {type:`University`,
+        name: `KING MONGKUT'S UNIVERSITY OF TECHNOLOGY THONBURI, Bangkok`,
+        details: [`- Bachelor of Civil Engineering`],
+      },
+      {type:`School`,
+        name: `RITTIYA WANNALAI, Bangkok`,
+        details: [`- Science-Mathematics`],
+      },
+    ],
     workExperience: [
       {
         year: "2020-2022",
