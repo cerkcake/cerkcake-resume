@@ -1,6 +1,5 @@
 import "./index.css";
-import Resume from "./Resume";
-import { BsGithub, } from "react-icons/bs";
+import Resume from "./components/Resume";
 
 const App = () => {
   const info = {
@@ -9,7 +8,7 @@ const App = () => {
     lname: `YOONUCH`,
     tools: `./mystack.png`,
     aboutMe: `
-    A Civil Engineer who's tired of manually input and calculations on  
+    Ex Civil Engineer who's tired of manually input and calculations on  
     Excel, I'd been trying to minimize and shorten the very repeatedly 
     work process, and I finally found out that coding could help. That 's 
     the point where I start  learning coding.`,
@@ -19,11 +18,6 @@ const App = () => {
         url: "https://github.com/cerkcake",
         name: `GitHub`,
         icon: `https://cdn.iconscout.com/icon/free/png-256/github-156-675764.png?f=webp&w=256`,
-      },
-      {
-        url: "https://www.facebook.com/yoonuch",
-        name: "Facebook",
-        icon: `https://cdn.iconscout.com/icon/free/png-512/facebook-270-789828.png?f=avif&w=256`,
       },
       {
         url: "https://www.linkedin.com/in/kunlanis-yoonuch/",
@@ -43,15 +37,11 @@ const App = () => {
       {type:`University`,
         name: `KING MONGKUT'S UNIVERSITY OF TECHNOLOGY THONBURI, Bangkok`,
         details: [`- Bachelor of Civil Engineering`],
-      },
-      {type:`School`,
-        name: `RITTIYA WANNALAI, Bangkok`,
-        details: [`- Science-Mathematics`],
-      },
+      }
     ],
     workExperience: [
       {
-        year: "2020-2022",
+        year: "2019-2022",
         companyName: "TEAM Group Co.,Pcl",
         jobs: [
           "- Cost & Specification Engineer",
@@ -59,7 +49,7 @@ const App = () => {
         ],
       },
       {
-        year: "2018-2019",
+        year: "2019-2019",
         companyName: "Power Line Engineering Co.,Pcl",
         jobs: [
           "- Technical Support for Site Engineer",
@@ -68,7 +58,7 @@ const App = () => {
         ],
       },
       {
-        year: "2016-2017",
+        year: "2017-2018",
         companyName: "International Project Administration Co.,Ltd",
         jobs: [
           "- Site Engineer",
